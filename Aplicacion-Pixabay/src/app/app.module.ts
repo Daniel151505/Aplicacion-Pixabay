@@ -9,6 +9,7 @@ import { BuscarImagenComponent } from './components/buscar-imagen/buscar-imagen.
 import { ListarImagenComponent } from './components/listar-imagen/listar-imagen.component';
 import { ErrorComponent } from './shared/error/error.component';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SpinnerComponent } from './shared/spinner/spinner.component';
     BuscarImagenComponent,
     ListarImagenComponent,
     ErrorComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
