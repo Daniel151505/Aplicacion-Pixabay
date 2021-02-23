@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BuscarImagenComponent } from './components/buscar-imagen/buscar-imagen.component';
 import { ListarImagenComponent } from './components/listar-imagen/listar-imagen.component';
+import { ErrorComponent } from './shared/error/error.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BuscarImagenComponent,
-    ListarImagenComponent
+    ListarImagenComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
