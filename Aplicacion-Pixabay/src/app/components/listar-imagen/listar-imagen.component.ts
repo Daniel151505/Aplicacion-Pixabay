@@ -20,6 +20,7 @@ export class ListarImagenComponent implements OnInit {
   constructor(private imagenSerive: ImagenService) {
     this.subscription = this.imagenSerive.getTerminoBusqueda().subscribe(data => {
       this.termino = data
+      this.paginaActual = 1
       this.loading = true
       this.obtenerImagenes()
       
@@ -33,7 +34,6 @@ export class ListarImagenComponent implements OnInit {
     this.imagenSerive.getImagenes(this.termino).subscribe(data => {
       
       this.loading = false
-      this.paginaActual = 1
 
       if (data.hits.length === 0) {
         this.imagenSerive.setError('Opss... no encontramos ningun resultado')
