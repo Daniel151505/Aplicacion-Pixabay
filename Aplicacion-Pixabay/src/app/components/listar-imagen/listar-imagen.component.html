@@ -1,6 +1,6 @@
-<app-spinner></app-spinner>
+<app-spinner *ngIf="loading"></app-spinner>
 
-<div class="row row-cols-1 row-cols-md-4 g-4">
+<div *ngIf="!loading" class="row row-cols-1 row-cols-md-4 g-4">
     <div *ngFor="let imagen of listarImagenes" class="col">
       <div class="card">
         <img [src]="imagen.previewURL" class="card-img-top" alt="...">
