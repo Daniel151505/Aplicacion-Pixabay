@@ -53,4 +53,8 @@ export class ListarImagenComponent implements OnInit {
     this.paginaActual--
   }
 
+  paginaPosterior() {
+    this.paginaActual++
+  }
+
 }
