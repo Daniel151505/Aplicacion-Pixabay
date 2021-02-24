@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { ImagenService } from 'src/app/services/imagen.service';
 
@@ -7,7 +7,7 @@ import { ImagenService } from 'src/app/services/imagen.service';
   templateUrl: './error.component.html',
   styleUrls: ['./error.component.css']
 })
-export class ErrorComponent implements OnInit {
+export class ErrorComponent implements OnInit,OnDestroy {
 
   texto: string = ''
   mostrar: boolean =false
@@ -21,6 +21,10 @@ export class ErrorComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy():void {
+    this.subscripcion.unsubscribe()
   }
 
   mostrarMensaje(){
