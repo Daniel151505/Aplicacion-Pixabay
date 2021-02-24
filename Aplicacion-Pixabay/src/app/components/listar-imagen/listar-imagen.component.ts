@@ -32,11 +32,13 @@ export class ListarImagenComponent implements OnInit {
 
   obtenerImagenes() {
     this.imagenSerive.getImagenes(this.termino, this.imagenPorPagina, this.paginaActual).subscribe(data => {
+      setTimeout(() => {
+        this.loading = false
+      }, 3000);
       
-      this.loading = false
 
       if (data.hits.length === 0) {
-        this.imagenSerive.setError('Opss... no encontramos ningun resultado')
+        this.imagenSerive.setError('Lo siento... no encontramos ningun resultado')
         return
       }
 
@@ -45,7 +47,7 @@ export class ListarImagenComponent implements OnInit {
       this.listarImagenes = data.hits
 
     }, error => {
-        this.imagenSerive.setError('Opss.. ocurrio un error')
+        this.imagenSerive.setError('Lo siento... ocurrio un error')
          this.loading = false
       })
   }
