@@ -20,7 +20,7 @@ export class ImagenService {
   }
 
   enviarTerminoBusqueda(termino: string){
-    this.terminoBusqueda$.next()
+    this.terminoBusqueda$.next(termino)
   }
 
   getTerminoBusqueda(): Observable<string> {
