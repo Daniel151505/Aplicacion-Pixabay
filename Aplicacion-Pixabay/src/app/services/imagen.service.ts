@@ -7,6 +7,7 @@ import { Observable, Subject } from 'rxjs';
 export class ImagenService {
 
   private error$ = new Subject<string>()
+  private terminoBusqueda$ = new Subject<string>()
 
   constructor() { }
 
@@ -17,5 +18,11 @@ export class ImagenService {
   getError():Observable<string> {
     return this.error$.asObservable()
   }
+
+  enviarTerminoBusqueda(termino: string){
+    this.terminoBusqueda$.next()
+  }
+
+
 
 }
