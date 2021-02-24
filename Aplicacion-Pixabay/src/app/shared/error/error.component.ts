@@ -13,7 +13,12 @@ export class ErrorComponent implements OnInit {
   mostrar: boolean =false
   subscripcion: Subscription
 
-  constructor(private imagenService: ImagenService) { }
+  constructor(private imagenService: ImagenService) {
+    this.subscripcion = this.imagenService.getError().subscribe(data => {
+      this.mostrar = true
+      this.texto = data
+    })
+   }
 
   ngOnInit(): void {
   }
