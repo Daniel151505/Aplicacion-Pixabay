@@ -15,10 +15,17 @@ export class ListarImagenComponent implements OnInit {
   constructor(private imagenSerive: ImagenService) {
     this.subscription = this.imagenSerive.getTerminoBusqueda().subscribe(data => {
       this.termino = data
+      this.obtenerImagenes()
     })
    }
 
   ngOnInit(): void {
+  }
+
+  obtenerImagenes() {
+    this.imagenSerive.getImagenes(this.termino).subscribe(data => {
+      
+    })
   }
 
 }
