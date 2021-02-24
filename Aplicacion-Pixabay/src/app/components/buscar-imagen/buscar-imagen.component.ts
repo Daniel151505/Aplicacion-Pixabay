@@ -15,4 +15,10 @@ export class BuscarImagenComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  buscarImagenes() {
+    if (this.nombreImagen === '') {
+      this.imagenSerive.setError('Agrega un texto de Busqueda')
+    }
+  }
+
 }
