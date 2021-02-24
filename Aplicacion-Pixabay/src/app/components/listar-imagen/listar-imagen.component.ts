@@ -11,6 +11,7 @@ export class ListarImagenComponent implements OnInit {
 
   termino:string = ''
   subscription: Subscription
+  listarImagenes: any[] = []
 
   constructor(private imagenSerive: ImagenService) {
     this.subscription = this.imagenSerive.getTerminoBusqueda().subscribe(data => {
@@ -28,6 +29,9 @@ export class ListarImagenComponent implements OnInit {
         this.imagenSerive.setError('Opss... no encontramos ningun resultado')
         return
       }
+
+      this.listarImagenes = data.hits
+
     }, error => {
         this.imagenSerive.setError('Opss.. ocurrio un error')
     })
