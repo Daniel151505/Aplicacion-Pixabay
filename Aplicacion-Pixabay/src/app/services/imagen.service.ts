@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +12,10 @@ export class ImagenService {
 
   setError(mensaje: string){
     this.$error.next(mensaje)
+  }
+
+  getError():Observable<string> {
+    return this.$error.asObservable()
   }
 
 }
