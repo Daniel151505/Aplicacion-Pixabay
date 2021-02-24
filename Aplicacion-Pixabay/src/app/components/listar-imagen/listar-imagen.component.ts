@@ -57,4 +57,12 @@ export class ListarImagenComponent implements OnInit {
     this.paginaActual++
   }
 
+  paginaAnteriorClass() {
+    if (this.paginaActual === 1) {
+      return false
+    } else {
+      return true
+    }
+  }
+
 }
