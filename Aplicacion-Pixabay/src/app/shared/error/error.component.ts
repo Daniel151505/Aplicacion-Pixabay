@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { ImagenService } from 'src/app/services/imagen.service';
 
 @Component({
   selector: 'app-error',
@@ -12,7 +13,7 @@ export class ErrorComponent implements OnInit {
   mostrar: boolean =false
   subscripcion: Subscription
 
-  constructor() { }
+  constructor(private imagenService: ImagenService) { }
 
   ngOnInit(): void {
   }
