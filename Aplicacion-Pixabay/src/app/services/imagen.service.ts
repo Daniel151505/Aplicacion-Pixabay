@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
@@ -9,7 +10,7 @@ export class ImagenService {
   private error$ = new Subject<string>()
   private terminoBusqueda$ = new Subject<string>()
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   setError(mensaje: string){
     this.error$.next(mensaje)
