@@ -13,6 +13,9 @@ export class ListarImagenComponent implements OnInit {
   subscription: Subscription
   listarImagenes: any[] = []
   loading = false
+  imagenPorPagina = 30
+  paginaActual = 1
+  calcularTotalPaginas = 0
 
   constructor(private imagenSerive: ImagenService) {
     this.subscription = this.imagenSerive.getTerminoBusqueda().subscribe(data => {
@@ -36,12 +39,18 @@ export class ListarImagenComponent implements OnInit {
         return
       }
 
+      this.calcularTotalPaginas = Math.ceil(data.totalHits / this.imagenPorPagina) 
+
       this.listarImagenes = data.hits
 
     }, error => {
         this.imagenSerive.setError('Opss.. ocurrio un error')
          this.loading = false
       })
+  }
+
+  paginaAnterior() {
+    this.paginaActual--
   }
 
 }
