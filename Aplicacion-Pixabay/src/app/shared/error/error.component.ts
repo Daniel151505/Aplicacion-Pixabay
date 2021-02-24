@@ -15,12 +15,19 @@ export class ErrorComponent implements OnInit {
 
   constructor(private imagenService: ImagenService) {
     this.subscripcion = this.imagenService.getError().subscribe(data => {
-      this.mostrar = true
+      this.mostrarMensaje()
       this.texto = data
     })
    }
 
   ngOnInit(): void {
+  }
+
+  mostrarMensaje(){
+    this.mostrar = true
+    setTimeout(() => {
+      this.mostrar = false
+    }, 2000);
   }
 
 }
