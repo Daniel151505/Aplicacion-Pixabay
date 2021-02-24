@@ -23,6 +23,8 @@ export class ImagenService {
     this.terminoBusqueda$.next()
   }
 
-
+  getTerminoBusqueda(): Observable<string> {
+    return this.terminoBusqueda$.asObservable()
+  }
 
 }
