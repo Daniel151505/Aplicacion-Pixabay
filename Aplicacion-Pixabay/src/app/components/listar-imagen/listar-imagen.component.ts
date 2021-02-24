@@ -31,7 +31,7 @@ export class ListarImagenComponent implements OnInit {
   }
 
   obtenerImagenes() {
-    this.imagenSerive.getImagenes(this.termino).subscribe(data => {
+    this.imagenSerive.getImagenes(this.termino, this.imagenPorPagina, this.paginaActual).subscribe(data => {
       
       this.loading = false
 
@@ -52,10 +52,16 @@ export class ListarImagenComponent implements OnInit {
 
   paginaAnterior() {
     this.paginaActual--
+    this.loading=true
+    this.listarImagenes = []
+    this.obtenerImagenes()
   }
 
   paginaPosterior() {
     this.paginaActual++
+    this.loading=true
+    this.listarImagenes = []
+    this.obtenerImagenes()
   }
 
   paginaAnteriorClass() {
